@@ -338,4 +338,148 @@
                         <span onclick="playWord('hop')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-orange-700 shadow-md">hop</span>
                         <span onclick="playWord('mop')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-orange-700 shadow-md">mop</span>
                         <span onclick="playWord('pop')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-orange-700 shadow-md">pop</span>
-                        <span onclick="playWord('top')" class="
+                        <span onclick="playWord('top')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-orange-700 shadow-md">top</span>
+                        <span onclick="playWord('box')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-orange-700 shadow-md">box</span>
+                    </div>
+                </div>
+
+                <!-- Short U Words -->
+                <div class="bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl p-4">
+                    <h3 class="text-lg font-bold text-teal-800 mb-3 text-center">Short U</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span onclick="playWord('bug')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-teal-700 shadow-md">bug</span>
+                        <span onclick="playWord('dug')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-teal-700 shadow-md">dug</span>
+                        <span onclick="playWord('hug')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-teal-700 shadow-md">hug</span>
+                        <span onclick="playWord('jug')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-teal-700 shadow-md">jug</span>
+                        <span onclick="playWord('mug')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-teal-700 shadow-md">mug</span>
+                        <span onclick="playWord('rug')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-teal-700 shadow-md">rug</span>
+                        <span onclick="playWord('tug')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-teal-700 shadow-md">tug</span>
+                        <span onclick="playWord('bun')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-teal-700 shadow-md">bun</span>
+                        <span onclick="playWord('fun')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-teal-700 shadow-md">fun</span>
+                        <span onclick="playWord('run')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-teal-700 shadow-md">run</span>
+                        <span onclick="playWord('sun')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-teal-700 shadow-md">sun</span>
+                        <span onclick="playWord('cup')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-teal-700 shadow-md">cup</span>
+                        <span onclick="playWord('pup')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-teal-700 shadow-md">pup</span>
+                        <span onclick="playWord('cut')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-teal-700 shadow-md">cut</span>
+                        <span onclick="playWord('nut')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-sm font-semibold text-teal-700 shadow-md">nut</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 p-4 bg-yellow-50 rounded-lg border-2 border-yellow-200">
+                <p class="text-sm text-yellow-800">
+                    <span class="font-bold">💡 Tip:</span> Click on any word to hear how it sounds! Practice reading these words every day to become a great reader!
+                </p>
+            </div>
+        </div>
+
+        <!-- Practice Tips -->
+        <div class="mt-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl shadow-xl p-8 text-white">
+            <h2 class="text-2xl font-bold mb-4">Practice Makes Perfect! 🌈</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white/20 backdrop-blur rounded-lg p-4">
+                    <h3 class="font-bold text-lg mb-2">1. Listen Carefully</h3>
+                    <p class="text-sm">Click the play buttons to hear each sound clearly. Notice how short and long vowels sound different!</p>
+                </div>
+                <div class="bg-white/20 backdrop-blur rounded-lg p-4">
+                    <h3 class="font-bold text-lg mb-2">2. Practice Daily</h3>
+                    <p class="text-sm">Read through the word lists every day. Start with 5 words and add more as you get better!</p>
+                </div>
+                <div class="bg-white/20 backdrop-blur rounded-lg p-4">
+                    <h3 class="font-bold text-lg mb-2">3. Sound It Out</h3>
+                    <p class="text-sm">When you see a new word, break it into sounds. Say each sound, then blend them together!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-12 bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm">© 2024 Vowel Sounds Learning Center | Making Reading Fun! 📖</p>
+        </div>
+    </footer>
+
+    <script>
+        // Audio context for generating sounds
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        
+        // Speech synthesis for word pronunciation
+        const synth = window.speechSynthesis;
+        
+        function playSound(sound) {
+            // Using Web Speech API for more natural pronunciation
+            const utterance = new SpeechSynthesisUtterance();
+            utterance.rate = 0.8; // Slower for learning
+            utterance.pitch = 1.0;
+            utterance.volume = 1.0;
+            
+            // Map sounds to pronunciations
+            const soundMap = {
+                'short-a': 'ah',
+                'long-a': 'ay',
+                'short-e': 'eh',
+                'long-e': 'ee',
+                'short-i': 'ih',
+                'long-i': 'eye',
+                'short-o': 'ah',
+                'long-o': 'oh',
+                'short-u': 'uh',
+                'long-u': 'you',
+                'c-sound': 'kuh',
+                't-sound': 'tuh',
+                'k-sound': 'kuh'
+            };
+            
+            utterance.text = soundMap[sound] || sound;
+            synth.speak(utterance);
+            
+            // Visual feedback
+            animateButton(event.target);
+        }
+        
+        function playWord(word) {
+            const utterance = new SpeechSynthesisUtterance(word);
+            utterance.rate = 0.7; // Even slower for words
+            utterance.pitch = 1.0;
+            utterance.volume = 1.0;
+            synth.speak(utterance);
+            
+            // Visual feedback
+            if (event && event.target) {
+                animateButton(event.target);
+            }
+        }
+        
+        function animateButton(button) {
+            if (!button) return;
+            
+            // Add animation class
+            button.style.transform = 'scale(0.95)';
+            button.style.backgroundColor = '#10b981'; // Green color
+            
+            setTimeout(() => {
+                button.style.transform = '';
+                button.style.backgroundColor = '';
+            }, 300);
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Request user interaction for audio context
+            document.body.addEventListener('click', function initAudio() {
+                audioContext.resume();
+                document.body.removeEventListener('click', initAudio);
+            }, { once: true });
+            
+            // Add hover effects to word pills
+            const wordPills = document.querySelectorAll('.word-pill');
+            wordPills.forEach(pill => {
+                pill.addEventListener('mouseenter', function() {
+                    this.style.cursor = 'pointer';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
