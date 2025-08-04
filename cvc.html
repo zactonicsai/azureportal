@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn CVC Words - 3-Letter Patterns</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @keyframes bounce-gentle {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      .animate-bounce-gentle {
+        animation: bounce-gentle 2s infinite;
+      }
+      .cvc-card {
+        transition: all 0.3s ease;
+      }
+      .cvc-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .play-btn {
+        transition: all 0.2s ease;
+      }
+      .play-btn:hover {
+        transform: scale(1.1);
+      }
+      .play-btn:active {
+        transform: scale(0.95);
+      }
+      .word-pill {
+        transition: all 0.2s ease;
+      }
+      .word-pill:hover {
+        transform: scale(1.05);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 min-h-screen"
+  >
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-10">
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-xl animate-bounce-gentle"
+            >
+              ABC
+            </div>
+            <h1
+              class="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+            >
+              CVC Words Learning Center
+            </h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+      <!-- Introduction -->
+      <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">
+          Welcome, Young Reader! 🌟
+        </h2>
+        <p class="text-xl text-gray-600 leading-relaxed">
+          Learn <span class="font-bold text-purple-600">CVC words</span> today!
+          These are 3-letter words. They have consonant-vowel-consonant. Click
+          play to hear them!
+        </p>
+      </div>
+
+      <!-- CVC Vowel Cards -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
+        <!-- Short A -->
+        <div class="cvc-card bg-white rounded-xl shadow-lg p-6">
+          <div class="text-center">
+            <div class="text-6xl font-bold text-purple-600 mb-4">Short A</div>
+            <div class="space-y-3">
+              <div class="bg-blue-100 rounded-lg p-3">
+                <p class="text-base font-semibold text-blue-800 mb-2">
+                  Short A
+                </p>
+                <p class="text-xl font-bold text-gray-800">/æ/ as in cat</p>
+                <button
+                  onclick="playSound('short-a')"
+                  class="play-btn mt-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600"
+                >
+                  ▶ Play
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Short E -->
+        <div class="cvc-card bg-white rounded-xl shadow-lg p-6">
+          <div class="text-center">
+            <div class="text-6xl font-bold text-pink-600 mb-4">Short E</div>
+            <div class="space-y-3">
+              <div class="bg-blue-100 rounded-lg p-3">
+                <p class="text-base font-semibold text-blue-800 mb-2">
+                  Short E
+                </p>
+                <p class="text-xl font-bold text-gray-800">/ɛ/ as in bed</p>
+                <button
+                  onclick="playSound('short-e')"
+                  class="play-btn mt-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600"
+                >
+                  ▶ Play
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Short I -->
+        <div class="cvc-card bg-white rounded-xl shadow-lg p-6">
+          <div class="text-center">
+            <div class="text-6xl font-bold text-indigo-600 mb-4">Short I</div>
+            <div class="space-y-3">
+              <div class="bg-blue-100 rounded-lg p-3">
+                <p class="text-base font-semibold text-blue-800 mb-2">
+                  Short I
+                </p>
+                <p class="text-xl font-bold text-gray-800">/ɪ/ as in sit</p>
+                <button
+                  onclick="playSound('eh')"
+                  class="play-btn mt-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600"
+                >
+                  ▶ Play
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Short O -->
+        <div class="cvc-card bg-white rounded-xl shadow-lg p-6">
+          <div class="text-center">
+            <div class="text-6xl font-bold text-orange-600 mb-4">Short O</div>
+            <div class="space-y-3">
+              <div class="bg-blue-100 rounded-lg p-3">
+                <p class="text-base font-semibold text-blue-800 mb-2">
+                  Short O
+                </p>
+                <p class="text-xl font-bold text-gray-800">/ɒ/ as in hot</p>
+                <button
+                  onclick="playSound('short-o')"
+                  class="play-btn mt-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600"
+                >
+                  ▶ Play
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Short U -->
+        <div class="cvc-card bg-white rounded-xl shadow-lg p-6">
+          <div class="text-center">
+            <div class="text-6xl font-bold text-teal-600 mb-4">Short U</div>
+            <div class="space-y-3">
+              <div class="bg-blue-100 rounded-lg p-3">
+                <p class="text-base font-semibold text-blue-800 mb-2">
+                  Short U
+                </p>
+                <p class="text-xl font-bold text-gray-800">/ʌ/ as in cup</p>
+                <button
+                  onclick="playSound('short-u')"
+                  class="play-btn mt-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600"
+                >
+                  ▶ Play
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sounding Out Examples -->
+      <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">
+          Sound Out CVC Words! 🎵
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-6">
+            <h3 class="text-2xl font-bold text-blue-800 mb-4">
+              Example: CAT (CVC)
+            </h3>
+            <div class="space-y-3">
+              <div class="flex items-center space-x-4">
+                <span class="text-4xl font-bold text-gray-800">C</span>
+                <span class="text-gray-600">→</span>
+                <span class="text-xl">/k/</span>
+                <button
+                  onclick="playSound('c-sound')"
+                  class="play-btn bg-blue-400 text-white px-3 py-1 rounded-full text-base"
+                >
+                  ▶
+                </button>
+              </div>
+              <div class="flex items-center space-x-4">
+                <span class="text-4xl font-bold text-gray-800">A</span>
+                <span class="text-gray-600">→</span>
+                <span class="text-xl">/æ/</span>
+                <button
+                  onclick="playSound('short-a')"
+                  class="play-btn bg-blue-400 text-white px-3 py-1 rounded-full text-base"
+                >
+                  ▶
+                </button>
+              </div>
+              <div class="flex items-center space-x-4">
+                <span class="text-4xl font-bold text-gray-800">T</span>
+                <span class="text-gray-600">→</span>
+                <span class="text-xl">/t/</span>
+                <button
+                  onclick="playSound('t-sound')"
+                  class="play-btn bg-blue-400 text-white px-3 py-1 rounded-full text-base"
+                >
+                  ▶
+                </button>
+              </div>
+              <div class="mt-4 pt-4 border-t-2 border-blue-300">
+                <button
+                  onclick="playWord('cat')"
+                  class="play-btn bg-blue-600 text-white px-6 py-3 rounded-full font-bold"
+                >
+                  ▶ Play "CAT"
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-gradient-to-r from-green-50 to-green-100 rounded-xl p-6"
+          >
+            <h3 class="text-2xl font-bold text-green-800 mb-4">
+              Example: BED (CVC)
+            </h3>
+            <div class="space-y-3">
+              <div class="flex items-center space-x-4">
+                <span class="text-4xl font-bold text-gray-800">B</span>
+                <span class="text-gray-600">→</span>
+                <span class="text-xl">/b/</span>
+                <button
+                  onclick="playSound('b-sound')"
+                  class="play-btn bg-green-400 text-white px-3 py-1 rounded-full text-base"
+                >
+                  ▶
+                </button>
+              </div>
+              <div class="flex items-center space-x-4">
+                <span class="text-4xl font-bold text-gray-800">E</span>
+                <span class="text-gray-600">→</span>
+                <span class="text-xl">/ɛ/</span>
+                <button
+                  onclick="playSound('short-e')"
+                  class="play-btn bg-green-400 text-white px-3 py-1 rounded-full text-base"
+                >
+                  ▶
+                </button>
+              </div>
+              <div class="flex items-center space-x-4">
+                <span class="text-4xl font-bold text-gray-800">D</span>
+                <span class="text-gray-600">→</span>
+                <span class="text-xl">/d/</span>
+                <button
+                  onclick="playSound('d-sound')"
+                  class="play-btn bg-green-400 text-white px-3 py-1 rounded-full text-base"
+                >
+                  ▶
+                </button>
+              </div>
+              <div class="mt-4 pt-4 border-t-2 border-green-300">
+                <button
+                  onclick="playWord('bed')"
+                  class="play-btn bg-green-600 text-white px-6 py-3 rounded-full font-bold"
+                >
+                  ▶ Play "BED"
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Common CVC Words -->
+      <div class="bg-white rounded-2xl shadow-xl p-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">
+          Common CVC Words 📚
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+          <!-- Short A Words -->
+          <div
+            class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4"
+          >
+            <h3 class="text-xl font-bold text-purple-800 mb-3 text-center">
+              Short A
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                onclick="playWord('cat')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md"
+                >cat</span
+              >
+              <span
+                onclick="playWord('bat')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md"
+                >bat</span
+              >
+              <span
+                onclick="playWord('cab')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md"
+                >cab</span
+              >
+              <span
+                onclick="playWord('hat')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md"
+                >hat</span
+              >
+              <span
+                onclick="playWord('map')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md"
+                >map</span
+              >
+              <span
+                onclick="playWord('man')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md"
+                >man</span
+              >
+              <span
+                onclick="playWord('pan')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md"
+                >pan</span
+              >
+              <span
+                onclick="playWord('ran')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md"
+                >ran</span
+              >
+              <span
+                onclick="playWord('sat')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md"
+                >sat</span
+              >
+              <span
+                onclick="playWord('tan')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md"
+                >tan</span
+              >
+              <span
+                onclick="playWord('van')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md"
+                >van</span
+              >
+            </div>
+          </div>
+
+          <!-- Short E Words -->
+          <div
+            class="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-4"
+          >
+            <h3 class="text-xl font-bold text-pink-800 mb-3 text-center">
+              Short E
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                onclick="playWord('bed')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md"
+                >bed</span
+              >
+              <span
+                onclick="playWord('red')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md"
+                >red</span
+              >
+              <span
+                onclick="playWord('net')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md"
+                >net</span
+              >
+              <span
+                onclick="playWord('hen')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md"
+                >hen</span
+              >
+              <span
+                onclick="playWord('men')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md"
+                >men</span
+              >
+              <span
+                onclick="playWord('pen')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md"
+                >pen</span
+              >
+              <span
+                onclick="playWord('ten')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md"
+                >ten</span
+              >
+              <span
+                onclick="playWord('get')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md"
+                >get</span
+              >
+              <span
+                onclick="playWord('let')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md"
+                >let</span
+              >
+              <span
+                onclick="playWord('met')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md"
+                >met</span
+              >
+              <span
+                onclick="playWord('pet')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md"
+                >pet</span
+              >
+            </div>
+          </div>
+
+          <!-- Short I Words -->
+          <div
+            class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-4"
+          >
+            <h3 class="text-xl font-bold text-indigo-800 mb-3 text-center">
+              Short I
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                onclick="playWord('sit')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md"
+                >sit</span
+              >
+              <span
+                onclick="playWord('big')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md"
+                >big</span
+              >
+              <span
+                onclick="playWord('dig')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md"
+                >dig</span
+              >
+              <span
+                onclick="playWord('pig')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md"
+                >pig</span
+              >
+              <span
+                onclick="playWord('wig')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md"
+                >wig</span
+              >
+              <span
+                onclick="playWord('bit')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md"
+                >bit</span
+              >
+              <span
+                onclick="playWord('hit')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md"
+                >hit</span
+              >
+              <span
+                onclick="playWord('kit')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md"
+                >kit</span
+              >
+              <span
+                onclick="playWord('lit')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md"
+                >lit</span
+              >
+              <span
+                onclick="playWord('pin')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md"
+                >pin</span
+              >
+              <span
+                onclick="playWord('win')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md"
+                >win</span
+              >
+            </div>
+          </div>
+
+          <!-- Short O Words -->
+          <div
+            class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-4"
+          >
+            <h3 class="text-xl font-bold text-orange-800 mb-3 text-center">
+              Short O
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                onclick="playWord('hot')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md"
+                >hot</span
+              >
+              <span
+                onclick="playWord('dot')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md"
+                >dot</span
+              >
+              <span
+                onclick="playWord('got')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md"
+                >got</span
+              >
+              <span
+                onclick="playWord('lot')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md"
+                >lot</span
+              >
+              <span
+                onclick="playWord('not')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md"
+                >not</span
+              >
+              <span
+                onclick="playWord('pot')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md"
+                >pot</span
+              >
+              <span
+                onclick="playWord('dog')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md"
+                >dog</span
+              >
+              <span
+                onclick="playWord('log')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md"
+                >log</span
+              >
+              <span
+                onclick="playWord('hop')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md"
+                >hop</span
+              >
+              <span
+                onclick="playWord('mop')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md"
+                >mop</span
+              >
+              <span
+                onclick="playWord('pop')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md"
+                >pop</span
+              >
+            </div>
+          </div>
+
+          <!-- Short U Words -->
+          <div
+            class="bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl p-4"
+          >
+            <h3 class="text-xl font-bold text-teal-800 mb-3 text-center">
+              Short U
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                onclick="playWord('cup')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md"
+                >cup</span
+              >
+              <span
+                onclick="playWord('bug')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md"
+                >bug</span
+              >
+              <span
+                onclick="playWord('dug')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md"
+                >dug</span
+              >
+              <span
+                onclick="playWord('hug')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md"
+                >hug</span
+              >
+              <span
+                onclick="playWord('jug')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md"
+                >jug</span
+              >
+              <span
+                onclick="playWord('mug')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md"
+                >mug</span
+              >
+              <span
+                onclick="playWord('rug')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md"
+                >rug</span
+              >
+              <span
+                onclick="playWord('bun')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md"
+                >bun</span
+              >
+              <span
+                onclick="playWord('fun')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md"
+                >fun</span
+              >
+              <span
+                onclick="playWord('run')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md"
+                >run</span
+              >
+              <span
+                onclick="playWord('sun')"
+                class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md"
+                >sun</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="mt-6 p-4 bg-yellow-50 rounded-lg border-2 border-yellow-200"
+        >
+          <p class="text-base text-yellow-800">
+            <span class="font-bold">💡 Tip:</span> Click words to hear them!
+            Blend the sounds to read!
+          </p>
+        </div>
+      </div>
+
+      <!-- Test Your Skills -->
+      <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">
+          Test Your Skills! 🧠
+        </h2>
+        <p class="text-xl text-gray-600 mb-4">
+          Read these sentences. Click play to hear them!
+        </p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-4">
+            <p class="text-base font-semibold text-blue-800">The cat sat.</p>
+            <button
+              onclick="playWord('The cat sat.')"
+              class="play-btn mt-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600"
+            >
+              ▶ Play
+            </button>
+          </div>
+          <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-4">
+            <p class="text-base font-semibold text-blue-800">The van ran.</p>
+            <button
+              onclick="playWord('The van ran.')"
+              class="play-btn mt-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600"
+            >
+              ▶ Play
+            </button>
+          </div>
+          <div class="bg-gradient-to-r from-pink-50 to-pink-100 rounded-xl p-4">
+            <p class="text-base font-semibold text-pink-800">The bed is red.</p>
+            <button
+              onclick="playWord('The bed is red.')"
+              class="play-btn mt-2 bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600"
+            >
+              ▶ Play
+            </button>
+          </div>
+          <div class="bg-gradient-to-r from-pink-50 to-pink-100 rounded-xl p-4">
+            <p class="text-base font-semibold text-pink-800">Get the net.</p>
+            <button
+              onclick="playWord('Get the net.')"
+              class="play-btn mt-2 bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600"
+            >
+              ▶ Play
+            </button>
+          </div>
+          <div
+            class="bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-xl p-4"
+          >
+            <p class="text-base font-semibold text-indigo-800">
+              Sit on the kit.
+            </p>
+            <button
+              onclick="playWord('Sit on the kit.')"
+              class="play-btn mt-2 bg-indigo-500 text-white px-4 py-2 rounded-full hover:bg-indigo-600"
+            >
+              ▶ Play
+            </button>
+          </div>
+          <div
+            class="bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-xl p-4"
+          >
+            <p class="text-base font-semibold text-indigo-800">
+              The pig is big.
+            </p>
+            <button
+              onclick="playWord('The pig is big.')"
+              class="play-btn mt-2 bg-indigo-500 text-white px-4 py-2 rounded-full hover:bg-indigo-600"
+            >
+              ▶ Play
+            </button>
+          </div>
+          <div
+            class="bg-gradient-to-r from-orange-50 to-orange-100 rounded-xl p-4"
+          >
+            <p class="text-base font-semibold text-orange-800">
+              The dog got hot.
+            </p>
+            <button
+              onclick="playWord('The dog got hot.')"
+              class="play-btn mt-2 bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600"
+            >
+              ▶ Play
+            </button>
+          </div>
+          <div
+            class="bg-gradient-to-r from-orange-50 to-orange-100 rounded-xl p-4"
+          >
+            <p class="text-base font-semibold text-orange-800">
+              Hop on the log.
+            </p>
+            <button
+              onclick="playWord('Hop on the log.')"
+              class="play-btn mt-2 bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600"
+            >
+              ▶ Play
+            </button>
+          </div>
+          <div class="bg-gradient-to-r from-teal-50 to-teal-100 rounded-xl p-4">
+            <p class="text-base font-semibold text-teal-800">The bug dug.</p>
+            <button
+              onclick="playWord('The bug dug.')"
+              class="play-btn mt-2 bg-teal-500 text-white px-4 py-2 rounded-full hover:bg-teal-600"
+            >
+              ▶ Play
+            </button>
+          </div>
+          <div class="bg-gradient-to-r from-teal-50 to-teal-100 rounded-xl p-4">
+            <p class="text-base font-semibold text-teal-800">Run in the sun.</p>
+            <button
+              onclick="playWord('Run in the sun.')"
+              class="play-btn mt-2 bg-teal-500 text-white px-4 py-2 rounded-full hover:bg-teal-600"
+            >
+              ▶ Play
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Practice Tips -->
+      <div
+        class="mt-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl shadow-xl p-8 text-white"
+      >
+        <h2 class="text-3xl font-bold mb-4">Practice Makes Perfect! 🌈</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white/20 backdrop-blur rounded-lg p-4">
+            <h3 class="font-bold text-xl mb-2">1. Listen Well</h3>
+            <p class="text-base">
+              Click play to hear sounds. Blend consonant-vowel-consonant!
+            </p>
+          </div>
+          <div class="bg-white/20 backdrop-blur rounded-lg p-4">
+            <h3 class="font-bold text-xl mb-2">2. Practice Daily</h3>
+            <p class="text-base">
+              Read five CVC words each day. Add more as you get better!
+            </p>
+          </div>
+          <div class="bg-white/20 backdrop-blur rounded-lg p-4">
+            <h3 class="font-bold text-xl mb-2">3. Sound It Out</h3>
+            <p class="text-base">
+              Say each sound in the word. Then blend them together!
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-12 bg-gray-800 text-white py-6">
+      <div class="container mx-auto px-4 text-center">
+        <p class="text-base">
+          © 2024 CVC Words Learning Center | Making Reading Fun! 📖
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Audio context for generating sounds
+      const audioContext = new (window.AudioContext ||
+        window.webkitAudioContext)();
+
+      // Speech synthesis for pronunciation
+      const synth = window.speechSynthesis;
+
+      function playSound(sound) {
+        const utterance = new SpeechSynthesisUtterance();
+        utterance.rate = 0.8;
+        utterance.pitch = 1.0;
+        utterance.volume = 1.0;
+
+        const soundMap = {
+          "short-a": "ah",
+          "short-e": "eh",
+          "short-i": "ih",
+          "short-o": "ah",
+          "short-u": "uh",
+          "c-sound": "kuh",
+          "t-sound": "tuh",
+          "b-sound": "buh",
+          "d-sound": "duh",
+        };
+
+        utterance.text = soundMap[sound] || sound;
+        synth.speak(utterance);
+
+        animateButton(event.target);
+      }
+
+      function playWord(word) {
+        const utterance = new SpeechSynthesisUtterance(word);
+        utterance.rate = 0.7;
+        utterance.pitch = 1.0;
+        utterance.volume = 1.0;
+        synth.speak(utterance);
+
+        if (event && event.target) {
+          animateButton(event.target);
+        }
+      }
+
+      function animateButton(button) {
+        if (!button) return;
+
+        button.style.transform = "scale(0.95)";
+        button.style.backgroundColor = "#10b981";
+
+        setTimeout(() => {
+          button.style.transform = "";
+          button.style.backgroundColor = "";
+        }, 300);
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document.body.addEventListener(
+          "click",
+          function initAudio() {
+            audioContext.resume();
+            document.body.removeEventListener("click", initAudio);
+          },
+          { once: true }
+        );
+
+        const wordPills = document.querySelectorAll(".word-pill");
+        wordPills.forEach((pill) => {
+          pill.addEventListener("mouseenter", function () {
+            this.style.cursor = "pointer";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
