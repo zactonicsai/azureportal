@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Letter Blends - Ch, Sh, Th, Ph</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes bounce-gentle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-bounce-gentle {
+            animation: bounce-gentle 2s infinite;
+        }
+        .blend-card {
+            transition: all 0.3s ease;
+        }
+        .blend-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .play-btn {
+            transition: all 0.2s ease;
+        }
+        .play-btn:hover {
+            transform: scale(1.1);
+        }
+        .play-btn:active {
+            transform: scale(0.95);
+        }
+        .word-pill {
+            transition: all 0.2s ease;
+        }
+        .word-pill:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+    </style>
+</woocommerceArtifact>
+<body class="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-xl animate-bounce-gentle">
+                        ABC
+                    </div>
+                    <h1 class="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                        Letter Blends Learning Center
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Introduction -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Welcome, Young Reader! 🌟</h2>
+            <p class="text-xl text-gray-600 leading-relaxed">
+                Learn <span class="font-bold text-purple-600">letter blends</span> today! 
+                Blends are Ch, Sh, Th, Ph. 
+                They make special sounds. 
+                Click play to hear them!
+            </p>
+        </div>
+
+        <!-- Blend Sound Cards -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <!-- Blend Ch -->
+            <div class="blend-card bg-white rounded-xl shadow-lg p-6">
+                <div class="text-center">
+                    <div class="text-6xl font-bold text-purple-600 mb-4">Ch ch</div>
+                    <div class="space-y-3">
+                        <div class="bg-blue-100 rounded-lg p-3">
+                            <p class="text-base font-semibold text-blue-800 mb-2">Ch Sound</p>
+                            <p class="text-xl font-bold text-gray-800">/tʃ/ as in chair</p>
+                            <button onclick="playSound('chaa, chair')" class="play-btn mt-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
+                                ▶ Play
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blend Sh -->
+            <div class="blend-card bg-white rounded-xl shadow-lg p-6">
+                <div class="text-center">
+                    <div class="text-6xl font-bold text-pink-600 mb-4">Sh sh</div>
+                    <div class="space-y-3">
+                        <div class="bg-blue-100 rounded-lg p-3">
+                            <p class="text-base font-semibold text-blue-800 mb-2">Sh Sound</p>
+                            <p class="text-xl font-bold text-gray-800">/ʃ/ as in ship</p>
+                            <button onclick="playSound('shaa, ship')" class="play-btn mt-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
+                                ▶ Play
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blend Th (Voiceless) -->
+            <div class="blend-card bg-white rounded-xl shadow-lg p-6">
+                <div class="text-center">
+                    <div class="text-6xl font-bold text-indigo-600 mb-4">Th th</div>
+                    <div class="space-y-3">
+                        <div class="bg-blue-100 rounded-lg p-3">
+                            <p class="text-base font-semibold text-blue-800 mb-2">Th (Voiceless)</p>
+                            <p class="text-xl font-bold text-gray-800">/θ/ as in think</p>
+                            <button onclick="playSound('thaa, think')" class="play-btn mt-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
+                                ▶ Play
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blend Th (Voiced) -->
+            <div class="blend-card bg-white rounded-xl shadow-lg p-6">
+                <div class="text-center">
+                    <div class="text-6xl font-bold text-orange-600 mb-4">Th th</div>
+                    <div class="space-y-3">
+                        <div class="bg-blue-100 rounded-lg p-3">
+                            <p class="text-base font-semibold text-blue-800 mb-2">Th (Voiced, ‘thuuuu’)</p>
+                            <p class="text-xl font-bold text-gray-800">/ð/ as in this</p>
+                            <button onclick="playSound('thaa, this')" class="play-btn mt-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
+                                ▶ Play
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blend Ph -->
+            <div class="blend-card bg-white rounded-xl shadow-lg p-6">
+                <div class="text-center">
+                    <div class="text-6xl font-bold text-teal-600 mb-4">Ph ph</div>
+                    <div class="space-y-3">
+                        <div class="bg-blue-100 rounded-lg p-3">
+                            <p class="text-base font-semibold text-blue-800 mb-2">Ph Sound</p>
+                            <p class="text-xl font-bold text-gray-800">/f/ as in phone</p>
+                            <button onclick="playSound('phaa, phone')" class="play-btn mt-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
+                                ▶ Play
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sounding Out Examples -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Sound Out Words! 🎵</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-6">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-4">Example: CHAIR (Ch blend)</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-4">
+                            <span class="text-4xl font-bold text-gray-800">Ch</span>
+                            <span class="text-gray-600">→</span>
+                            <span class="text-xl">/tʃ/</span>
+                            <button onclick="playSound('chaa')" class="play-btn bg-blue-400 text-white px-3 py-1 rounded-full text-base">▶</button>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-4xl font-bold text-gray-800">air</span>
+                            <span class="text-gray-600">→</span>
+                            <span class="text-xl">/ɛər/</span>
+                            <button onclick="playSound('air-sound')" class="play-btn bg-blue-400 text-white px-3 py-1 rounded-full text-base">▶</button>
+                        </div>
+                        <div class="mt-4 pt-4 border-t-2 border-blue-300">
+                            <button onclick="playWord('chair')" class="play-btn bg-blue-600 text-white px-6 py-3 rounded-full font-bold">
+                                ▶ Play "CHAIR"
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-xl p-6">
+                    <h3 class="text-2xl font-bold text-green-800 mb-4">Example: SHIP (Sh blend)</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-4">
+                            <span class="text-4xl font-bold text-gray-800">Sh</span>
+                            <span class="text-gray-600">→</span>
+                            <span class="text-xl">/ʃ/</span>
+                            <button onclick="playSound('shaa')" class="play-btn bg-green-400 text-white px-3 py-1 rounded-full text-base">▶</button>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-4xl font-bold text-gray-800">ip</span>
+                            <span class="text-gray-600">→</span>
+                            <span class="text-xl">/ɪp/</span>
+                            <button onclick="playSound('ippp')" class="play-btn bg-green-400 text-white px-3 py-1 rounded-full text-base">▶</button>
+                        </div>
+                        <div class="mt-4 pt-4 border-t-2 border-green-300">
+                            <button onclick="playWord('ship')" class="play-btn bg-green-600 text-white px-6 py-3 rounded-full font-bold">
+                                ▶ Play "SHIP"
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sounding the Words: Blends -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Sounding the Words: Blends 🚛</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-xl p-6">
+                    <h3 class="text-2xl font-bold text-indigo-800 mb-4">Example: THINK (Th Voiceless)</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-4">
+                            <span class="text-4xl font-bold text-gray-800">Th</span>
+                            <span class="text-gray-600">→</span>
+                            <span class="text-xl">/θ/</span>
+                            <button onclick="playSound('thaa')" class="play-btn bg-indigo-400 text-white px-3 py-1 rounded-full text-base">▶</button>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-4xl font-bold text-gray-800">ink</span>
+                            <span class="text-gray-600">→</span>
+                            <span class="text-xl">/ɪŋk/</span>
+                            <button onclick="playSound('ink-sound')" class="play-btn bg-indigo-400 text-white px-3 py-1 rounded-full text-base">▶</button>
+                        </div>
+                        <div class="mt-4 pt-4 border-t-2 border-indigo-300">
+                            <button onclick="playWord('think')" class="play-btn bg-indigo-600 text-white px-6 py-3 rounded-full font-bold">
+                                ▶ Play "THINK"
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-orange-50 to-orange-100 rounded-xl p-6">
+                    <h3 class="text-2xl font-bold text-orange-800 mb-4">Example: THIS (Th Voiced, ‘thuuuu’)</h3>
+                    <p class="text-base text-orange-800 mb-2">Voiced Th sounds like ‘thuuuu’!</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-4">
+                            <span class="text-4xl font-bold text-gray-800">Th</span>
+                            <span class="text-gray-600">→</span>
+                            <span class="text-xl">/ð/</span>
+                            <button onclick="playSound('thaa')" class="play-btn bg-orange-400 text-white px-3 py-1 rounded-full text-base">▶</button>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-4xl font-bold text-gray-800">is</span>
+                            <span class="text-gray-600">→</span>
+                            <span class="text-xl">/ɪs/</span>
+                            <button onclick="playSound('is-sound')" class="play-btn bg-orange-400 text-white px-3 py-1 rounded-full text-base">▶</button>
+                        </div>
+                        <div class="mt-4 pt-4 border-t-2 border-orange-300">
+                            <button onclick="playWord('this')" class="play-btn bg-orange-600 text-white px-6 py-3 rounded-full font-bold">
+                                ▶ Play "THIS"
+                            </button>
+                            <button onclick="playWord('This is a truck.')" class="play-btn mt-2 bg-orange-600 text-white px-6 py-3 rounded-full font-bold">
+                                ▶ Play "This is a truck."
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-teal-50 to-teal-100 rounded-xl p-6">
+                    <h3 class="text-2xl font-bold text-teal-800 mb-4">Example: PHONE (Ph blend)</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-4">
+                            <span class="text-4xl font-bold text-gray-800">Ph</span>
+                            <span class="text-gray-600">→</span>
+                            <span class="text-xl">/f/</span>
+                            <button onclick="playSound('phaa')" class="play-btn bg-teal-400 text-white px-3 py-1 rounded-full text-base">▶</button>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-4xl font-bold text-gray-800">one</span>
+                            <span class="text-gray-600">→</span>
+                            <span class="text-xl">/oʊn/</span>
+                            <button onclick="playSound('own')" class="play-btn bg-teal-400 text-white px-3 py-1 rounded-full text-base">▶</button>
+                        </div>
+                        <div class="mt-4 pt-4 border-t-2 border-teal-300">
+                            <button onclick="playWord('phone')" class="play-btn bg-teal-600 text-white px-6 py-3 rounded-full font-bold">
+                                ▶ Play "PHONE"
+                            </button>
+                            <button onclick="playWord('Phone the truck driver.')" class="play-btn mt-2 bg-teal-600 text-white px-6 py-3 rounded-full font-bold">
+                                ▶ Play "Phone the truck driver."
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Common Blend Words -->
+        <div class="bg-white rounded-2xl shadow-xl p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Common Blend Words 📚</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Ch Words -->
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4">
+                    <h3 class="text-xl font-bold text-purple-800 mb-3 text-center">Ch Words</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span onclick="playWord('chair')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md">chair</span>
+                        <span onclick="playWord('chip')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md">chip</span>
+                        <span onclick="playWord('chat')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md">chat</span>
+                        <span onclick="playWord('chock')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md">chock</span>
+                        <span onclick="playWord('chin')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md">chin</span>
+                        <span onclick="playWord('chess')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md">chess</span>
+                        <span onclick="playWord('chick')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md">chick</span>
+                        <span onclick="playWord('chew')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-purple-700 shadow-md">chew</span>
+                    </div>
+                </div>
+
+                <!-- Sh Words -->
+                <div class="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-4">
+                    <h3 class="text-xl font-bold text-pink-800 mb-3 text-center">Sh Words</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span onclick="playWord('ship')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md">ship</span>
+                        <span onclick="playWord('shop')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md">shop</span>
+                        <span onclick="playWord('shed')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md">shed</span>
+                        <span onclick="playWord('shift')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md">shift</span>
+                        <span onclick="playWord('shin')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md">shin</span>
+                        <span onclick="playWord('shell')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md">shell</span>
+                        <span onclick="playWord('shot')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md">shot</span>
+                        <span onclick="playWord('shack')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-pink-700 shadow-md">shack</span>
+                    </div>
+                </div>
+
+                <!-- Th Voiceless Words -->
+                <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-4">
+                    <h3 class="text-xl font-bold text-indigo-800 mb-3 text-center">Th (Voiceless)</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span onclick="playWord('think')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md">think</span>
+                        <span onclick="playWord('thin')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md">thin</span>
+                        <span onclick="playWord('thumb')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md">thumb</span>
+                        <span onclick="playWord('thud')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md">thud</span>
+                        <span onclick="playWord('thank')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md">thank</span>
+                        <span onclick="playWord('thump')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md">thump</span>
+                        <span onclick="playWord('thick')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md">thick</span>
+                        <span onclick="playWord('path')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-indigo-700 shadow-md">path</span>
+                    </div>
+                </div>
+
+                <!-- Th Voiced Words -->
+                <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-4">
+                    <h3 class="text-xl font-bold text-orange-800 mb-3 text-center">Th (Voiced)</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span onclick="playWord('this')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md">this</span>
+                        <span onclick="playWord('that')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md">that</span>
+                        <span onclick="playWord('them')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md">them</span>
+                        <span onclick="playWord('then')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md">then</span>
+                        <span onclick="playWord('the')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md">the</span>
+                        <span onclick="playWord('than')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md">than</span>
+                        <span onclick="playWord('these')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md">these</span>
+                        <span onclick="playWord('those')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-orange-700 shadow-md">those</span>
+                    </div>
+                </div>
+
+                <!-- Ph Words -->
+                <div class="bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl p-4">
+                    <h3 class="text-xl font-bold text-teal-800 mb-3 text-center">Ph Words</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span onclick="playWord('phone')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md">phone</span>
+                        <span onclick="playWord('photo')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md">photo</span>
+                        <span onclick="playWord('fish')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md">fish</span>
+                        <span onclick="playWord('fan')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md">fan</span>
+                        <span onclick="playWord('fit')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md">fit</span>
+                        <span onclick="playWord('fun')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md">fun</span>
+                        <span onclick="playWord('fell')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md">fell</span>
+                        <span onclick="playWord('fox')" class="word-pill cursor-pointer bg-white px-3 py-1 rounded-full text-base font-semibold text-teal-700 shadow-md">fox</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 p-4 bg-yellow-50 rounded-lg border-2 border-yellow-200">
+                <p class="text-base text-yellow-800">
+                    <span class="font-bold">💡 Tip:</span> Click words to hear them! Practice daily to read well!
+                </p>
+            </div>
+        </div>
+
+        <!-- Test Your Skills -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Test Your Skills! 🧠</h2>
+            <p class="text-xl text-gray-600 mb-4">Read these sentences. Click play to hear them!</p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl p-4">
+                    <p class="text-base font-semibold text-purple-800">Sit on the chair.</p>
+                    <button onclick="playWord('Sit on the chair.')" class="play-btn mt-2 bg-purple-500 text-white px-4 py-2 rounded-full hover:bg-purple-600">
+                        ▶ Play
+                    </button>
+                </div>
+                <div class="bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl p-4">
+                    <p class="text-base font-semibold text-purple-800">Place the chock.</p>
+                    <button onclick="playWord('Place the chock.')" class="play-btn mt-2 bg-purple-500 text-white px-4 py-2 rounded-full hover:bg-purple-600">
+                        ▶ Play
+                    </button>
+                </div>
+                <div class="bg-gradient-to-r from-pink-50 to-pink-100 rounded-xl p-4">
+                    <p class="text-base font-semibold text-pink-800">The ship is big.</p>
+                    <button onclick="playWord('The ship is big.')" class="play-btn mt-2 bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600">
+                        ▶ Play
+                    </button>
+                </div>
+                <div class="bg-gradient-to-r from-pink-50 to-pink-100 rounded-xl p-4">
+                    <p class="text-base font-semibold text-pink-800">Go to the shed.</p>
+                    <button onclick="playWord('Go to the shed.')" class="play-btn mt-2 bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600">
+                        ▶ Play
+                    </button>
+                </div>
+                <div class="bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-xl p-4">
+                    <p class="text-base font-semibold text-indigo-800">Think about the path.</p>
+                    <button onclick="playWord('Think about the path.')" class="play-btn mt-2 bg-indigo-500 text-white px-4 py-2 rounded-full hover:bg-indigo-600">
+                        ▶ Play
+                    </button>
+                </div>
+                <div class="bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-xl p-4">
+                    <p class="text-base font-semibold text-indigo-800">The thumb hurts.</p>
+                    <button onclick="playWord('The thumb hurts.')" class="play-btn mt-2 bg-indigo-500 text-white px-4 py-2 rounded-full hover:bg-indigo-600">
+                        ▶ Play
+                    </button>
+                </div>
+                <div class="bg-gradient-to-r from-orange-50 to-orange-100 rounded-xl p-4">
+                    <p class="text-base font-semibold text-orange-800">This is a truck.</p>
+                    <button onclick="playWord('This is a truck.')" class="play-btn mt-2 bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600">
+                        ▶ Play
+                    </button>
+                </div>
+                <div class="bg-gradient-to-r from-orange-50 to-orange-100 rounded-xl p-4">
+                    <p class="text-base font-semibold text-orange-800">That is big.</p>
+                    <button onclick="playWord('That is big.')" class="play-btn mt-2 bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600">
+                        ▶ Play
+                    </button>
+                </div>
+                <div class="bg-gradient-to-r from-teal-50 to-teal-100 rounded-xl p-4">
+                    <p class="text-base font-semibold text-teal-800">Phone the truck driver.</p>
+                    <button onclick="playWord('Phone the truck driver.')" class="play-btn mt-2 bg-teal-500 text-white px-4 py-2 rounded-full hover:bg-teal-600">
+                        ▶ Play
+                    </button>
+                </div>
+                <div class="bg-gradient-to-r from-teal-50 to-teal-100 rounded-xl p-4">
+                    <p class="text-base font-semibold text-teal-800">Take a photo.</p>
+                    <button onclick="playWord('Take a photo.')" class="play-btn mt-2 bg-teal-500 text-white px-4 py-2 rounded-full hover:bg-teal-600">
+                        ▶ Play
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Tips -->
+        <div class="mt-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl shadow-xl p-8 text-white">
+            <h2 class="text-3xl font-bold mb-4">Practice Makes Perfect! 🌈</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white/20 backdrop-blur rounded-lg p-4">
+                    <h3 class="font-bold text-xl mb-2">1. Listen Well</h3>
+                    <p class="text-base">Click play to hear blends. Note how they mix sounds!</p>
+                </div>
+                <div class="bg-white/20 backdrop-blur rounded-lg p-4">
+                    <h3 class="font-bold text-xl mb-2">2. Practice Every Day</h3>
+                    <p class="text-base">Read five words daily. Add more as you improve!</p>
+                </div>
+                <div class="bg-white/20 backdrop-blur rounded-lg p-4">
+                    <h3 class="font-bold text-xl mb-2">3. Sound Out Words</h3>
+                    <p class="text-base">Break blends into sounds. Say and blend them!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-12 bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-base">© 2025 Letter Blends Learning Center | Making Reading Fun! 📖</p>
+        </div>
+    </footer>
+
+    <script>
+        // Audio context for generating sounds
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        
+        // Speech synthesis for pronunciation
+        const synth = window.speechSynthesis;
+        
+        function playSound(sound) {
+            const utterance = new SpeechSynthesisUtterance();
+            utterance.rate = sound === 'th-voiced' ? 0.6 : 0.8; // Slower for 'thuuuu'
+            utterance.pitch = 1.0;
+            utterance.volume = 1.0;
+            
+            const soundMap = {
+                'ch': 'ch',
+                'sh': 'sh',
+                'th-voiceless': 'th',
+                'th-voiced': 'thuuuu',
+                'ph': 'f',
+                'air-sound': 'air',
+                'ip-sound': 'ip',
+                'ink-sound': 'ink',
+                'is-sound': 'is',
+                'one-sound': 'one'
+            };
+            
+            utterance.text = soundMap[sound] || sound;
+            synth.speak(utterance);
+            
+            animateButton(event.target);
+        }
+        
+        function playWord(word) {
+            const utterance = new SpeechSynthesisUtterance(word);
+            utterance.rate = 0.7;
+            utterance.pitch = 1.0;
+            utterance.volume = 1.0;
+            synth.speak(utterance);
+            
+            if (event && event.target) {
+                animateButton(event.target);
+            }
+        }
+        
+        function animateButton(button) {
+            if (!button) return;
+            
+            button.style.transform = 'scale(0.95)';
+            button.style.backgroundColor = '#10b981';
+            
+            setTimeout(() => {
+                button.style.transform = '';
+                button.style.backgroundColor = '';
+            }, 300);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.addEventListener('click', function initAudio() {
+                audioContext.resume();
+                document.body.removeEventListener('click', initAudio);
+            }, { once: true });
+            
+            const wordPills = document.querySelectorAll('.word-pill');
+            wordPills.forEach(pill => {
+                pill.addEventListener('mouseenter', function() {
+                    this.style.cursor = 'pointer';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
