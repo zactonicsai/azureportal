@@ -1,523 +1,733 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zactonics AI Reading Helper - Learn to Read with Fun!</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
         }
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.5); }
-            50% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.8); }
+        50% {
+          transform: translateY(-20px);
         }
-        .float-animation {
-            animation: float 3s ease-in-out infinite;
+      }
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
         }
-        .lesson-card {
-            transition: all 0.3s ease;
+        50% {
+          box-shadow: 0 0 40px rgba(168, 85, 247, 0.8);
         }
-        .lesson-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        .progress-bar {
-            background: linear-gradient(90deg, #10b981 0%, #10b981 var(--progress), #e5e7eb var(--progress));
-        }
-        .glow-effect {
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
-        .hero-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        .badge-new {
-            animation: pulse-glow 1.5s ease-in-out infinite;
-        }
+      }
+      .float-animation {
+        animation: float 3s ease-in-out infinite;
+      }
+      .lesson-card {
+        transition: all 0.3s ease;
+      }
+      .lesson-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+      .progress-bar {
+        background: linear-gradient(
+          90deg,
+          #10b981 0%,
+          #10b981 var(--progress),
+          #e5e7eb var(--progress)
+        );
+      }
+      .glow-effect {
+        animation: pulse-glow 2s ease-in-out infinite;
+      }
+      .hero-gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      .badge-new {
+        animation: pulse-glow 1.5s ease-in-out infinite;
+      }
     </style>
-</head>
-<body class="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 min-h-screen">
+  </head>
+  <body
+    class="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 min-h-screen"
+  >
     <!-- Navigation Header -->
     <header class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <div class="w-14 h-14 hero-gradient rounded-2xl flex items-center justify-center text-white font-bold text-2xl float-animation shadow-lg">
-                        Z
-                    </div>
-                    <div>
-                        <h1 class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                            Zactonics AI Reading Helper
-                        </h1>
-                        <p class="text-sm text-gray-600">Your Smart Learning Companion</p>
-                    </div>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <button class="bg-purple-100 text-purple-700 px-4 py-2 rounded-full font-semibold hover:bg-purple-200 transition">
-                        My Progress
-                    </button>
-                    <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition">
-                        Parent Portal
-                    </button>
-                </div>
+      <div class="container mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-14 h-14 hero-gradient rounded-2xl flex items-center justify-center text-white font-bold text-2xl float-animation shadow-lg"
+            >
+              Z
             </div>
+            <div>
+              <h1
+                class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+              >
+                Zactonics AI Reading Helper
+              </h1>
+              <p class="text-sm text-gray-600">Your Smart Learning Companion</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button
+              class="bg-purple-100 text-purple-700 px-4 py-2 rounded-full font-semibold hover:bg-purple-200 transition"
+            >
+              My Progress
+            </button>
+            <button
+              class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition"
+            >
+              Parent Portal
+            </button>
+          </div>
         </div>
+      </div>
     </header>
 
     <!-- Hero Section -->
     <section class="container mx-auto px-4 py-12">
-        <div class="hero-gradient rounded-3xl shadow-2xl p-12 text-white relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full -mr-32 -mt-32"></div>
-            <div class="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-10 rounded-full -ml-24 -mb-24"></div>
-            <div class="relative z-10">
-                <h2 class="text-5xl font-bold mb-4">Welcome to Your Reading Adventure! 🚀</h2>
-                <p class="text-xl mb-8 text-purple-100">
-                    Start with sounds, build to words, and soon you'll be reading amazing stories! 
-                    Our AI-powered lessons adapt to your learning pace.
-                </p>
-                <div class="flex space-x-4">
-                    <button onclick="scrollToLessons()" class="bg-white text-purple-700 px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition transform hover:scale-105">
-                        Start Learning
-                    </button>
-                    <button class="bg-purple-700 bg-opacity-50 backdrop-blur text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-opacity-70 transition">
-                        Take Placement Test
-                    </button>
-                </div>
-            </div>
+      <div
+        class="hero-gradient rounded-3xl shadow-2xl p-12 text-white relative overflow-hidden"
+      >
+        <div
+          class="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full -mr-32 -mt-32"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-10 rounded-full -ml-24 -mb-24"
+        ></div>
+        <div class="relative z-10">
+          <h2 class="text-5xl font-bold mb-4">
+            Welcome to Your Reading Adventure! 🚀
+          </h2>
+          <p class="text-xl mb-8 text-purple-100">
+            Start with sounds, build to words, and soon you'll be reading
+            amazing stories! Our AI-powered lessons adapt to your learning pace.
+          </p>
+          <div class="flex space-x-4">
+            <button
+              onclick="scrollToLessons()"
+              class="bg-white text-purple-700 px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition transform hover:scale-105"
+            >
+              Start Learning
+            </button>
+            <button
+              class="bg-purple-700 bg-opacity-50 backdrop-blur text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-opacity-70 transition"
+            >
+              Take Placement Test
+            </button>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Progress Overview -->
     <section class="container mx-auto px-4 py-8">
-        <div class="bg-white rounded-2xl shadow-lg p-6">
-            <div class="flex items-center justify-between mb-4">
-                <h3 class="text-xl font-bold text-gray-800">Your Learning Journey</h3>
-                <span class="text-sm text-gray-600">Level 1 Reader</span>
-            </div>
-            <div class="w-full bg-gray-200 rounded-full h-4 mb-2 progress-bar" style="--progress: 15%;">
-                <div class="h-full rounded-full flex items-center justify-end pr-2">
-                    <span class="text-xs text-white font-bold">15%</span>
-                </div>
-            </div>
-            <p class="text-sm text-gray-600">3 lessons completed • 17 more to unlock Story Time!</p>
+      <div class="bg-white rounded-2xl shadow-lg p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-xl font-bold text-gray-800">Your Learning Journey</h3>
+          <span class="text-sm text-gray-600">Level 1 Reader</span>
         </div>
+        <div
+          class="w-full bg-gray-200 rounded-full h-4 mb-2 progress-bar"
+          style="--progress: 15%"
+        >
+          <div class="h-full rounded-full flex items-center justify-end pr-2">
+            <span class="text-xs text-white font-bold">15%</span>
+          </div>
+        </div>
+        <p class="text-sm text-gray-600">
+          3 lessons completed • 17 more to unlock Story Time!
+        </p>
+      </div>
     </section>
 
     <!-- Main Curriculum Section -->
     <main id="lessons" class="container mx-auto px-4 py-8">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
-            Reading Curriculum Path 📚
-        </h2>
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+        Reading Curriculum Path 📚
+      </h2>
 
-        <!-- Level 1: Phonics Foundations -->
-        <div class="mb-12">
-            <div class="flex items-center mb-6">
-                <div class="bg-green-500 text-white px-4 py-2 rounded-full font-bold mr-4">Level 1</div>
-                <h3 class="text-2xl font-bold text-gray-800">Phonics Foundations</h3>
-                <span class="ml-4 text-sm bg-green-100 text-green-700 px-3 py-1 rounded-full">In Progress</span>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Lesson 1: Vowel Sounds -->
-                <a href="vowel-sounds-education.html" class="lesson-card block">
-                    <div class="bg-white rounded-xl shadow-lg p-6 border-2 border-green-500 relative">
-                        <div class="absolute -top-3 -right-3 bg-green-500 text-white text-xs px-3 py-1 rounded-full font-bold">
-                            START HERE
-                        </div>
-                        <div class="flex items-center mb-4">
-                            <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg">
-                                A
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-bold text-gray-800">Long & Short Vowel Sounds</h4>
-                                <p class="text-sm text-gray-600">Master the 5 vowels</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full">15 min</span>
-                            <span class="text-purple-600 font-bold">Play →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Lesson 2: Consonant Sounds -->
-                <div class="lesson-card cursor-pointer opacity-90">
-                    <div class="bg-white rounded-xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg">
-                                B
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-bold text-gray-800">Consonant Sounds</h4>
-                                <p class="text-sm text-gray-600">Learn all 21 consonants</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">20 min</span>
-                            <span class="text-gray-400">Locked 🔒</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Lesson 3: Letter Blends -->
-                <div class="lesson-card cursor-pointer opacity-90">
-                    <div class="bg-white rounded-xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center text-white text-xl font-bold shadow-lg">
-                                BL
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-bold text-gray-800">Letter Blends</h4>
-                                <p class="text-sm text-gray-600">Ch, Sh, Th, and more</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">25 min</span>
-                            <span class="text-gray-400">Locked 🔒</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <!-- Level 1: Phonics Foundations -->
+      <div class="mb-12">
+        <div class="flex items-center mb-6">
+          <div
+            class="bg-green-500 text-white px-4 py-2 rounded-full font-bold mr-4"
+          >
+            Level 1
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800">Phonics Foundations</h3>
+          <span
+            class="ml-4 text-sm bg-green-100 text-green-700 px-3 py-1 rounded-full"
+            >In Progress</span
+          >
         </div>
 
-        <!-- Level 2: Word Building -->
-        <div class="mb-12">
-            <div class="flex items-center mb-6">
-                <div class="bg-blue-500 text-white px-4 py-2 rounded-full font-bold mr-4">Level 2</div>
-                <h3 class="text-2xl font-bold text-gray-800">Word Building</h3>
-                <span class="ml-4 text-sm bg-gray-100 text-gray-600 px-3 py-1 rounded-full">Coming Soon</span>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Lesson 1: Vowel Sounds -->
+          <a href="vowel-sounds-education.html" class="lesson-card block">
+            <div
+              class="bg-white rounded-xl shadow-lg p-6 border-2 border-green-500 relative"
+            >
+              <div
+                class="absolute -top-3 -right-3 bg-green-500 text-white text-xs px-3 py-1 rounded-full font-bold"
+              >
+                START HERE
+              </div>
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg"
+                >
+                  A
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-bold text-gray-800">
+                    Long & Short Vowel Sounds
+                  </h4>
+                  <p class="text-sm text-gray-600">Master the 5 vowels</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full"
+                  >15 min</span
+                >
+                <span class="text-purple-600 font-bold">Play →</span>
+              </div>
             </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 opacity-75">
-                <!-- CVC Words -->
-                <div class="lesson-card">
-                    <div class="bg-white rounded-xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-2xl flex items-center justify-center text-white text-lg font-bold shadow-lg">
-                                CAT
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-bold text-gray-800">CVC Words</h4>
-                                <p class="text-sm text-gray-600">3-letter word patterns</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full">30 min</span>
-                            <span class="text-gray-400">Locked 🔒</span>
-                        </div>
-                    </div>
-                </div>
+          </a>
 
-                <!-- Sight Words -->
-                <div class="lesson-card">
-                    <div class="bg-white rounded-xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-pink-600 rounded-2xl flex items-center justify-center text-white text-lg font-bold shadow-lg">
-                                THE
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-bold text-gray-800">Sight Words</h4>
-                                <p class="text-sm text-gray-600">100 most common words</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded-full">25 min</span>
-                            <span class="text-gray-400">Locked 🔒</span>
-                        </div>
-                    </div>
+          <!-- Lesson 2: Consonant Sounds -->
+          <a href="consonant-education.html" class="lesson-card block">
+            <div class="lesson-card cursor-pointer opacity-90">
+              <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-center mb-4">
+                  <div
+                    class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg"
+                  >
+                    B
+                  </div>
+                  <div class="ml-4">
+                    <h4 class="text-lg font-bold text-gray-800">
+                      Consonant Sounds
+                    </h4>
+                    <p class="text-sm text-gray-600">Learn all 21 consonants</p>
+                  </div>
                 </div>
-
-                <!-- Word Families -->
-                <div class="lesson-card">
-                    <div class="bg-white rounded-xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-white text-lg font-bold shadow-lg">
-                                -AT
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-bold text-gray-800">Word Families</h4>
-                                <p class="text-sm text-gray-600">Rhyming patterns</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full">20 min</span>
-                            <span class="text-gray-400">Locked 🔒</span>
-                        </div>
-                    </div>
+                <div class="flex items-center justify-between">
+                  <span
+                    class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full"
+                    >20 min</span
+                  >
+                
                 </div>
+              </div>
             </div>
+          </a>
+          <!-- Lesson 3: Letter Blends -->
+          <div class="lesson-card cursor-pointer opacity-90">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center text-white text-xl font-bold shadow-lg"
+                >
+                  BL
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-bold text-gray-800">Letter Blends</h4>
+                  <p class="text-sm text-gray-600">Ch, Sh, Th, and more</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full"
+                  >25 min</span
+                >
+                <span class="text-gray-400">Locked 🔒</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Level 2: Word Building -->
+      <div class="mb-12">
+        <div class="flex items-center mb-6">
+          <div
+            class="bg-blue-500 text-white px-4 py-2 rounded-full font-bold mr-4"
+          >
+            Level 2
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800">Word Building</h3>
+          <span
+            class="ml-4 text-sm bg-gray-100 text-gray-600 px-3 py-1 rounded-full"
+            >Coming Soon</span
+          >
         </div>
 
-        <!-- Level 3: Sentence Skills -->
-        <div class="mb-12">
-            <div class="flex items-center mb-6">
-                <div class="bg-purple-500 text-white px-4 py-2 rounded-full font-bold mr-4">Level 3</div>
-                <h3 class="text-2xl font-bold text-gray-800">Sentence Skills</h3>
-                <span class="ml-4 text-sm bg-gray-100 text-gray-600 px-3 py-1 rounded-full">Unlock at Level 2</span>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 opacity-75">
+          <!-- CVC Words -->
+          <div class="lesson-card">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-2xl flex items-center justify-center text-white text-lg font-bold shadow-lg"
+                >
+                  CAT
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-bold text-gray-800">CVC Words</h4>
+                  <p class="text-sm text-gray-600">3-letter word patterns</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full"
+                  >30 min</span
+                >
+                <span class="text-gray-400">Locked 🔒</span>
+              </div>
             </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 opacity-75">
-                <!-- Simple Sentences -->
-                <div class="lesson-card">
-                    <div class="bg-white rounded-xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="w-16 h-16 bg-gradient-to-br from-teal-400 to-teal-600 rounded-2xl flex items-center justify-center text-white text-3xl font-bold shadow-lg">
-                                📝
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-bold text-gray-800">Simple Sentences</h4>
-                                <p class="text-sm text-gray-600">Subject + verb basics</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-full">30 min</span>
-                            <span class="text-gray-400">Locked 🔒</span>
-                        </div>
-                    </div>
-                </div>
+          </div>
 
-                <!-- Punctuation -->
-                <div class="lesson-card">
-                    <div class="bg-white rounded-xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-2xl flex items-center justify-center text-white text-3xl font-bold shadow-lg">
-                                .!?
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-bold text-gray-800">Punctuation Power</h4>
-                                <p class="text-sm text-gray-600">Periods, questions, more</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">15 min</span>
-                            <span class="text-gray-400">Locked 🔒</span>
-                        </div>
-                    </div>
+          <!-- Sight Words -->
+          <div class="lesson-card">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-pink-400 to-pink-600 rounded-2xl flex items-center justify-center text-white text-lg font-bold shadow-lg"
+                >
+                  THE
                 </div>
-
-                <!-- Reading Fluency -->
-                <div class="lesson-card">
-                    <div class="bg-white rounded-xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl flex items-center justify-center text-white text-3xl font-bold shadow-lg">
-                                🎯
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-bold text-gray-800">Reading Fluency</h4>
-                                <p class="text-sm text-gray-600">Speed & expression</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">25 min</span>
-                            <span class="text-gray-400">Locked 🔒</span>
-                        </div>
-                    </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-bold text-gray-800">Sight Words</h4>
+                  <p class="text-sm text-gray-600">100 most common words</p>
                 </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded-full"
+                  >25 min</span
+                >
+                <span class="text-gray-400">Locked 🔒</span>
+              </div>
             </div>
+          </div>
+
+          <!-- Word Families -->
+          <div class="lesson-card">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-white text-lg font-bold shadow-lg"
+                >
+                  -AT
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-bold text-gray-800">Word Families</h4>
+                  <p class="text-sm text-gray-600">Rhyming patterns</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full"
+                  >20 min</span
+                >
+                <span class="text-gray-400">Locked 🔒</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Level 3: Sentence Skills -->
+      <div class="mb-12">
+        <div class="flex items-center mb-6">
+          <div
+            class="bg-purple-500 text-white px-4 py-2 rounded-full font-bold mr-4"
+          >
+            Level 3
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800">Sentence Skills</h3>
+          <span
+            class="ml-4 text-sm bg-gray-100 text-gray-600 px-3 py-1 rounded-full"
+            >Unlock at Level 2</span
+          >
         </div>
 
-        <!-- Level 4: Story Time -->
-        <div class="mb-12">
-            <div class="flex items-center mb-6">
-                <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-full font-bold mr-4 glow-effect">
-                    Level 4
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 opacity-75">
+          <!-- Simple Sentences -->
+          <div class="lesson-card">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-teal-400 to-teal-600 rounded-2xl flex items-center justify-center text-white text-3xl font-bold shadow-lg"
+                >
+                  📝
                 </div>
-                <h3 class="text-2xl font-bold text-gray-800">Story Time Adventures</h3>
-                <span class="ml-4 text-sm bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full font-bold badge-new">
-                    ⭐ Ultimate Goal
-                </span>
+                <div class="ml-4">
+                  <h4 class="text-lg font-bold text-gray-800">
+                    Simple Sentences
+                  </h4>
+                  <p class="text-sm text-gray-600">Subject + verb basics</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-full"
+                  >30 min</span
+                >
+                <span class="text-gray-400">Locked 🔒</span>
+              </div>
             </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 opacity-75">
-                <!-- First Stories -->
-                <div class="lesson-card">
-                    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl shadow-lg p-6 border-2 border-purple-200">
-                        <div class="flex items-center mb-4">
-                            <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-400 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg">
-                                📖
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-bold text-gray-800">My First Stories</h4>
-                                <p class="text-sm text-gray-600">Simple 5-sentence tales</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full">10 stories</span>
-                            <span class="text-gray-400">Locked 🔒</span>
-                        </div>
-                    </div>
-                </div>
+          </div>
 
-                <!-- Adventure Stories -->
-                <div class="lesson-card">
-                    <div class="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl shadow-lg p-6 border-2 border-blue-200">
-                        <div class="flex items-center mb-4">
-                            <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-green-400 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg">
-                                🚀
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-bold text-gray-800">Adventure Stories</h4>
-                                <p class="text-sm text-gray-600">Exciting short tales</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">15 stories</span>
-                            <span class="text-gray-400">Locked 🔒</span>
-                        </div>
-                    </div>
+          <!-- Punctuation -->
+          <div class="lesson-card">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-2xl flex items-center justify-center text-white text-3xl font-bold shadow-lg"
+                >
+                  .!?
                 </div>
-
-                <!-- Animal Friends -->
-                <div class="lesson-card">
-                    <div class="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl shadow-lg p-6 border-2 border-orange-200">
-                        <div class="flex items-center mb-4">
-                            <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-yellow-400 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg">
-                                🦁
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-bold text-gray-800">Animal Friends</h4>
-                                <p class="text-sm text-gray-600">Fun animal stories</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full">20 stories</span>
-                            <span class="text-gray-400">Locked 🔒</span>
-                        </div>
-                    </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-bold text-gray-800">
+                    Punctuation Power
+                  </h4>
+                  <p class="text-sm text-gray-600">Periods, questions, more</p>
                 </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full"
+                  >15 min</span
+                >
+                <span class="text-gray-400">Locked 🔒</span>
+              </div>
             </div>
+          </div>
+
+          <!-- Reading Fluency -->
+          <div class="lesson-card">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl flex items-center justify-center text-white text-3xl font-bold shadow-lg"
+                >
+                  🎯
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-bold text-gray-800">
+                    Reading Fluency
+                  </h4>
+                  <p class="text-sm text-gray-600">Speed & expression</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full"
+                  >25 min</span
+                >
+                <span class="text-gray-400">Locked 🔒</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Level 4: Story Time -->
+      <div class="mb-12">
+        <div class="flex items-center mb-6">
+          <div
+            class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-full font-bold mr-4 glow-effect"
+          >
+            Level 4
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800">
+            Story Time Adventures
+          </h3>
+          <span
+            class="ml-4 text-sm bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full font-bold badge-new"
+          >
+            ⭐ Ultimate Goal
+          </span>
         </div>
 
-        <!-- Bonus Section -->
-        <div class="bg-gradient-to-r from-yellow-400 to-orange-400 rounded-3xl shadow-xl p-8 text-white">
-            <div class="flex items-center justify-between">
-                <div>
-                    <h3 class="text-2xl font-bold mb-2">🎮 Bonus Games & Activities</h3>
-                    <p class="text-yellow-100">Unlock fun reading games as you progress through lessons!</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 opacity-75">
+          <!-- First Stories -->
+          <div class="lesson-card">
+            <div
+              class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl shadow-lg p-6 border-2 border-purple-200"
+            >
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-400 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg"
+                >
+                  📖
                 </div>
-                <div class="bg-white/20 backdrop-blur rounded-xl p-4">
-                    <p class="text-3xl font-bold">3/25</p>
-                    <p class="text-sm">Games Unlocked</p>
+                <div class="ml-4">
+                  <h4 class="text-lg font-bold text-gray-800">
+                    My First Stories
+                  </h4>
+                  <p class="text-sm text-gray-600">Simple 5-sentence tales</p>
                 </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full"
+                  >10 stories</span
+                >
+                <span class="text-gray-400">Locked 🔒</span>
+              </div>
             </div>
+          </div>
+
+          <!-- Adventure Stories -->
+          <div class="lesson-card">
+            <div
+              class="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl shadow-lg p-6 border-2 border-blue-200"
+            >
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-blue-400 to-green-400 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg"
+                >
+                  🚀
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-bold text-gray-800">
+                    Adventure Stories
+                  </h4>
+                  <p class="text-sm text-gray-600">Exciting short tales</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full"
+                  >15 stories</span
+                >
+                <span class="text-gray-400">Locked 🔒</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Animal Friends -->
+          <div class="lesson-card">
+            <div
+              class="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl shadow-lg p-6 border-2 border-orange-200"
+            >
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-orange-400 to-yellow-400 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg"
+                >
+                  🦁
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-bold text-gray-800">
+                    Animal Friends
+                  </h4>
+                  <p class="text-sm text-gray-600">Fun animal stories</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full"
+                  >20 stories</span
+                >
+                <span class="text-gray-400">Locked 🔒</span>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Bonus Section -->
+      <div
+        class="bg-gradient-to-r from-yellow-400 to-orange-400 rounded-3xl shadow-xl p-8 text-white"
+      >
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-2xl font-bold mb-2">🎮 Bonus Games & Activities</h3>
+            <p class="text-yellow-100">
+              Unlock fun reading games as you progress through lessons!
+            </p>
+          </div>
+          <div class="bg-white/20 backdrop-blur rounded-xl p-4">
+            <p class="text-3xl font-bold">3/25</p>
+            <p class="text-sm">Games Unlocked</p>
+          </div>
+        </div>
+      </div>
     </main>
 
     <!-- Features Section -->
     <section class="container mx-auto px-4 py-12">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Why Zactonics Works 🌟</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="bg-white rounded-xl shadow-lg p-6 text-center">
-                <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4">
-                    🤖
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-2">AI-Powered Learning</h3>
-                <p class="text-gray-600">Adaptive lessons that adjust to your child's pace and learning style</p>
-            </div>
-            <div class="bg-white rounded-xl shadow-lg p-6 text-center">
-                <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4">
-                    🎯
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-2">Structured Path</h3>
-                <p class="text-gray-600">Clear progression from sounds to stories with no gaps in learning</p>
-            </div>
-            <div class="bg-white rounded-xl shadow-lg p-6 text-center">
-                <div class="w-20 h-20 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4">
-                    🏆
-                </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-2">Rewards & Progress</h3>
-                <p class="text-gray-600">Earn badges, unlock stories, and celebrate every milestone</p>
-            </div>
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">
+        Why Zactonics Works 🌟
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+          <div
+            class="w-20 h-20 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4"
+          >
+            🤖
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">
+            AI-Powered Learning
+          </h3>
+          <p class="text-gray-600">
+            Adaptive lessons that adjust to your child's pace and learning style
+          </p>
         </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+          <div
+            class="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4"
+          >
+            🎯
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Structured Path</h3>
+          <p class="text-gray-600">
+            Clear progression from sounds to stories with no gaps in learning
+          </p>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+          <div
+            class="w-20 h-20 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4"
+          >
+            🏆
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">
+            Rewards & Progress
+          </h3>
+          <p class="text-gray-600">
+            Earn badges, unlock stories, and celebrate every milestone
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8 mt-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <h4 class="font-bold text-lg mb-4">Zactonics AI</h4>
-                    <p class="text-sm text-gray-400">Making reading fun and accessible for every child.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-lg mb-4">Curriculum</h4>
-                    <ul class="text-sm text-gray-400 space-y-2">
-                        <li><a href="#" class="hover:text-white transition">Phonics</a></li>
-                        <li><a href="#" class="hover:text-white transition">Word Building</a></li>
-                        <li><a href="#" class="hover:text-white transition">Stories</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-lg mb-4">For Parents</h4>
-                    <ul class="text-sm text-gray-400 space-y-2">
-                        <li><a href="#" class="hover:text-white transition">Progress Reports</a></li>
-                        <li><a href="#" class="hover:text-white transition">Teaching Tips</a></li>
-                        <li><a href="#" class="hover:text-white transition">Support</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-lg mb-4">Connect</h4>
-                    <p class="text-sm text-gray-400 mb-4">Join our community of learners!</p>
-                    <button class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700 transition">
-                        Newsletter
-                    </button>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-                <p class="text-sm text-gray-400">© 2024 Zactonics AI Reading Helper. All rights reserved.</p>
-            </div>
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <h4 class="font-bold text-lg mb-4">Zactonics AI</h4>
+            <p class="text-sm text-gray-400">
+              Making reading fun and accessible for every child.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg mb-4">Curriculum</h4>
+            <ul class="text-sm text-gray-400 space-y-2">
+              <li>
+                <a href="#" class="hover:text-white transition">Phonics</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition"
+                  >Word Building</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition">Stories</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg mb-4">For Parents</h4>
+            <ul class="text-sm text-gray-400 space-y-2">
+              <li>
+                <a href="#" class="hover:text-white transition"
+                  >Progress Reports</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition"
+                  >Teaching Tips</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition">Support</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg mb-4">Connect</h4>
+            <p class="text-sm text-gray-400 mb-4">
+              Join our community of learners!
+            </p>
+            <button
+              class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700 transition"
+            >
+              Newsletter
+            </button>
+          </div>
         </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+          <p class="text-sm text-gray-400">
+            © 2024 Zactonics AI Reading Helper. All rights reserved.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script>
-        function scrollToLessons() {
-            document.getElementById('lessons').scrollIntoView({ behavior: 'smooth' });
-        }
+      function scrollToLessons() {
+        document
+          .getElementById("lessons")
+          .scrollIntoView({ behavior: "smooth" });
+      }
 
-        // Add interactive effects
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animate lesson cards on scroll
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.lesson-card').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'all 0.5s ease';
-                observer.observe(card);
+      // Add interactive effects
+      document.addEventListener("DOMContentLoaded", function () {
+        // Animate lesson cards on scroll
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
             });
+          },
+          { threshold: 0.1 }
+        );
 
-            // Add click feedback for locked lessons
-            document.querySelectorAll('.lesson-card').forEach(card => {
-                if (card.innerHTML.includes('Locked')) {
-                    card.addEventListener('click', function() {
-                        this.style.animation = 'shake 0.5s';
-                        setTimeout(() => {
-                            this.style.animation = '';
-                        }, 500);
-                    });
-                }
-            });
+        document.querySelectorAll(".lesson-card").forEach((card) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(20px)";
+          card.style.transition = "all 0.5s ease";
+          observer.observe(card);
         });
 
-        // Add shake animation for locked content
-        const style = document.createElement('style');
-        style.textContent = `
+        // Add click feedback for locked lessons
+        document.querySelectorAll(".lesson-card").forEach((card) => {
+          if (card.innerHTML.includes("Locked")) {
+            card.addEventListener("click", function () {
+              this.style.animation = "shake 0.5s";
+              setTimeout(() => {
+                this.style.animation = "";
+              }, 500);
+            });
+          }
+        });
+      });
+
+      // Add shake animation for locked content
+      const style = document.createElement("style");
+      style.textContent = `
             @keyframes shake {
                 0%, 100% { transform: translateX(0); }
                 25% { transform: translateX(-5px); }
                 75% { transform: translateX(5px); }
             }
         `;
-        document.head.appendChild(style);
+      document.head.appendChild(style);
     </script>
-</body>
+  </body>
 </html>
